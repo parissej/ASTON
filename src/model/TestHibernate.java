@@ -11,16 +11,13 @@ import org.hibernate.cfg.Configuration;
 public class TestHibernate {
 
 	public static void main(String[] args) {
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		Session session = sf.openSession();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-
-		Query query = session.createQuery("from employe");
-		List<?> employe = query.getResultList();
+		Query query = session.createQuery("from Employe");
+		List employe = query.getResultList();
 		session.getTransaction().commit();
 		session.close();
-		System.out.println("Nombre d'employés : " + employe.size());
-
+		System.out.println("Nombre d'employe : " + employe.size());
 	}
-
 }
