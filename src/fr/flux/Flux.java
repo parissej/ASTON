@@ -1,4 +1,4 @@
-package flux;
+package fr.flux;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

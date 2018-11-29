@@ -3,11 +3,23 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/base_exemple</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    </session-factory>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/base_exemple</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<mapping resource="model/ClientPrc.hbm.xml" />
+		<mapping resource="model/Commerciaux.hbm.xml" />
+		<mapping resource="model/Cours.hbm.xml" />
+		<mapping resource="model/Employe.hbm.xml" />	
+		<mapping resource="model/HistoCmd.hbm.xml" />
+		<mapping resource="model/Inscrit.hbm.xml" />
+		<mapping resource="model/Participer.hbm.xml" />
+		<mapping resource="model/PrimereLeve.hbm.xml" />
+		<mapping resource="model/Projet.hbm.xml" />
+		<mapping resource="model/Seminaire.hbm.xml" />
+
+	</session-factory>
 </hibernate-configuration>
