@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 nov. 2018 15:47:50 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="base_exemple" dynamic-insert="false" dynamic-update="false" mutable="true" name="model.Projet" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="projet">
+        <id name="codeprojet" type="string">
+            <column length="4" name="CODEPROJET"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nomprojet" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="NOMPROJET" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="debutproj" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="DEBUTPROJ" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="finprevue" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="FINPREVUE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="nomcontact" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="NOMCONTACT" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="employes" optimistic-lock="true" sort="unsorted" table="employe">
+            <key on-delete="noaction">
+                <column length="4" name="CODEPROJET"/>
+            </key>
+            <one-to-many class="model.Employe" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

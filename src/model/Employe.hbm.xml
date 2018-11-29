@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 nov. 2018 15:47:50 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="base_exemple" dynamic-insert="false" dynamic-update="false" mutable="true" name="model.Employe" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="employe">
+        <id name="numemp" type="int">
+            <column name="NUMEMP"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="model.Projet" embed-xml="true" fetch="select" insert="true" name="projet" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="4" name="CODEPROJET"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nomemp" optimistic-lock="true" type="string" unique="false">
+            <column length="25" name="NOMEMP" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prenomemp" optimistic-lock="true" type="string" unique="false">
+            <column length="25" name="PRENOMEMP" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="poste" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="POSTE" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="salaire" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="SALAIRE" not-null="true" precision="8"/>
+        </property>
+        <property generated="never" lazy="false" name="prime" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="PRIME" precision="7"/>
+        </property>
+        <property generated="never" lazy="false" name="superieur" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="SUPERIEUR"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="inscrits" optimistic-lock="true" sort="unsorted" table="inscrit">
+            <key on-delete="noaction">
+                <column name="NUMEMP" not-null="true"/>
+            </key>
+            <one-to-many class="model.Inscrit" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

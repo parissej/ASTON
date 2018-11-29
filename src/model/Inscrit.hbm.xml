@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 nov. 2018 15:47:50 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="base_exemple" dynamic-insert="false" dynamic-update="false" mutable="true" name="model.Inscrit" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="inscrit">
+        <composite-id class="model.InscritId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="codesemi" type="string">
+                <column length="10" name="CODESEMI"/>
+            </key-property>
+            <key-property name="numemp" type="int">
+                <column name="NUMEMP"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="model.Employe" embed-xml="true" fetch="select" insert="false" name="employe" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="NUMEMP" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="model.Seminaire" embed-xml="true" fetch="select" insert="false" name="seminaire" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column length="10" name="CODESEMI" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="dateinscrit" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="DATEINSCRIT" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="participers" optimistic-lock="true" sort="unsorted" table="participer">
+            <key on-delete="noaction">
+                <column name="NUMEMP" not-null="true"/>
+                <column length="10" name="CODESEMI" not-null="true"/>
+            </key>
+            <one-to-many class="model.Participer" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

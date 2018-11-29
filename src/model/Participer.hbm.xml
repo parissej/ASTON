@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 nov. 2018 15:47:50 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="base_exemple" dynamic-insert="false" dynamic-update="false" mutable="true" name="model.Participer" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="participer">
+        <composite-id class="model.ParticiperId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="numemp" type="int">
+                <column name="NUMEMP"/>
+            </key-property>
+            <key-property name="codesemi" type="string">
+                <column length="10" name="CODESEMI"/>
+            </key-property>
+            <key-property name="codejour" type="string">
+                <column length="2" name="CODEJOUR"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="model.Inscrit" embed-xml="true" fetch="select" insert="false" name="inscrit" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="NUMEMP" not-null="true"/>
+            <column length="10" name="CODESEMI" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

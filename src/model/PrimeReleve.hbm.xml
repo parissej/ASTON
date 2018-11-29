@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 nov. 2018 15:47:50 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="base_exemple" dynamic-insert="false" dynamic-update="false" mutable="true" name="model.PrimeReleve" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="prime_releve">
+        <composite-id class="model.PrimeReleveId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="numemp" type="int">
+                <column name="NUMEMP"/>
+            </key-property>
+            <key-property name="nomemp" type="string">
+                <column length="25" name="NOMEMP"/>
+            </key-property>
+            <key-property name="prenomemp" type="string">
+                <column length="25" name="PRENOMEMP"/>
+            </key-property>
+            <key-property name="poste" type="string">
+                <column length="20" name="POSTE"/>
+            </key-property>
+            <key-property name="salaire" type="big_decimal">
+                <column name="SALAIRE" precision="8"/>
+            </key-property>
+            <key-property name="prime" type="big_decimal">
+                <column name="PRIME" precision="7"/>
+            </key-property>
+            <key-property name="codeprojet" type="string">
+                <column length="4" name="CODEPROJET"/>
+            </key-property>
+            <key-property name="superieur" type="java.lang.Integer">
+                <column name="SUPERIEUR"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

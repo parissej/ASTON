@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 29 nov. 2018 15:47:50 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="base_exemple" dynamic-insert="false" dynamic-update="false" mutable="true" name="model.ClientPrc" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="client_prc">
+        <id name="idClient" type="java.lang.Integer">
+            <column name="id_client"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="model.HistoCmd" embed-xml="true" fetch="select" insert="true" name="histoCmd" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="num_commande"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nom" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="nom"/>
+        </property>
+        <property generated="never" lazy="false" name="prenom" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="prenom"/>
+        </property>
+        <property generated="never" lazy="false" name="adresse" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="adresse"/>
+        </property>
+        <property generated="never" lazy="false" name="telephone" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="telephone"/>
+        </property>
+        <property generated="never" lazy="false" name="dateNaissance" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="date_naissance"/>
+        </property>
+    </class>
+</hibernate-mapping>
