@@ -17,7 +17,6 @@
 		<mapping resource="model/HistoCmd.hbm.xml" />
 		<mapping resource="model/Inscrit.hbm.xml" />
 		<mapping resource="model/Participer.hbm.xml" />
-		<mapping resource="model/PrimereLeve.hbm.xml" />
 		<mapping resource="model/Projet.hbm.xml" />
 		<mapping resource="model/Seminaire.hbm.xml" />
 
